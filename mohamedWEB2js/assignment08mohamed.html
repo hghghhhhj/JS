@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Form validation </title>
+    <style>
+        h3 {
+            color: #6E3F19;
+            font-size: 1.6em;
+        }
+
+        #fieldset {
+            color: #6E3F19;
+            font-size: 1.2 em;
+            font-weight: bold;
+            background: #F5F5DC;
+        }
+
+        input[type=submit] {
+            width: 16%;
+            background-color: #6E3F19;
+            color: #F5F5DC;
+            padding: 14px 5px 14px 5px;
+
+            border-style: 2px dashed;
+            border-color: rgb(162, 101, 52);
+            border-radius: 18px;
+        }
+
+        .required label::after {
+            content: "*";
+        }
+
+        .required p::after {
+            content: "*";
+        }
+    </style>
+</head>
+
+<body>
+    <h2> Assignment 08 </h2>
+
+    <form id="form">
+        <fieldset id="fieldset">
+            <legend> content information:</legend>
+
+
+            <div class="required">
+                <label for="tname"> name:</label>
+                <input type="" name="firstname" id="firstname" class="required" placeholder="Your first name goes here"
+                    autofocus="autofocus" minlength="4" required />
+                <span id="firstnameInfo"></span>
+            </div>
+            <br>
+
+            <br>
+
+
+            <p>Can we content you</p>
+            <div>
+                <input type="radio" id="No" name="radioBotton" value="No" checked>
+                <label for="No">No</label> <br>
+
+                <input type="radio" id="yes" name="radioBotton" value="yes">
+                <label for="yes">yes</label>
+            </div>
+
+            <div id="hiddenSection">
+                <p>Please give us your email.</p>
+                <div>
+                    <div class="required">
+
+                    </div>
+                    <label for="mail">Your email:</label>
+                    <input type="email" name="mail" id="mail" placeholder="Your email goes here" required />
+                    <span id="mailInfo"></span>
+                </div>
+            </div>
+            <!-- <textarea name="feedback" id="feedback" placeholder="Your feedabck goes here" rows="3" cols="60"
+                    minlength="4" required></textarea>
+                <span id="feedbackInfo"></span> -->
+            </div>
+            <br>
+        </fieldset><br>
+        <label for="submit">Click to submit: </label> <input type="submit" id="submit" /><br>
+    </form>
+
+    <script>
+        "use strict";
+        var myfirstname = document.getElementById("firstname");
+        var myfirstnameInfo = document.getElementById("firstnameInfo");
+        var mail = document.getElementById("mail");
+        var mailInfo = document.getElementById("mailInfo");
+        // var feedback = document.getElementById("feedback");
+
+        var hiddenSection = document.getElementById("hiddenSection");
+        var yes = document.getElementById("yes");
+        var No = document.getElementById("No");
+
+        hiddenSection.style.visibility = "hidden";
+
+        firstname.oninput = function () {
+            if (!this.validity.valid) {
+                myfirstname.style.backgroundImage = "url(images/invalid.png) ";
+                myfirstname.style.backgroundRepeat = " no-repeat";
+                myfirstname.style.backgroundPosition = " right top";
+                myfirstnameInfo.innerHTML = "Your name is too small."
+            }
+            else {
+                myfirstname.style.backgroundImage = "url(images/valid.png) ";
+                myfirstname.style.backgroundRepeat = " no-repeat";
+                myfirstname.style.backgroundPosition = " right top";
+                myfirstnameInfo.innerHTML = "";
+            }
+        }
+
+        mail.oninput = function () {
+            if (!this.validity.valid) {
+                mail.style.border = "solid 3px red";
+                mailInfo.innerHTML = "Your email must be in the correct format. "
+            }
+            else {
+                mail.style.borderColor = "green";
+                mailInfo.innerHTML = "";
+            }
+        }
+
+        // feedback.oninput = function () {
+        //     if (!this.validity.valid) {
+        //         feedback.style.border = "solid 3px red";
+        //         feedbackInfo.innerHTML = "Your feedback must include at least 4 characters."
+        //     }
+        //     else {
+        //         feedback.style.borderColor = "green";
+        //         feedbackInfo.innerHTML = "";
+        //     }
+        // }
+
+        yes.onfocus = function () {
+            hiddenSection.style.visibility = "visible"
+        }
+
+        No.onfocus = function () {
+            hiddenSection.style.visibility = "hidden"
+        }
+    </script>
+</body>
+
+</html>

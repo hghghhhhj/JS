@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Forms</title>
+    <style>
+        #fieldset {
+            color: #6E3F19;
+            font-size: 1.2 em;
+            font-weight: bold;
+            background: #F5F5DC;
+        }
+
+        input[type=submit] {
+            width: 16%;
+            background-color: #6E3F19;
+            color: #F5F5DC;
+            padding: 14px 5px 14px 5px;
+            border-style: 2px dashed;
+            border-color: rgb(162, 101, 52);
+            border-radius: 18px;
+        }
+        .required label::after {
+            content: "*";
+        }
+    </style>
+</head>
+
+<body>
+    <h2> the HTML of forms</h2>
+    <form method="POST">
+        <fieldset id="fieldset">
+            <legend>please, fill in the following information</legend>
+            <div class="required">
+                <label for="name">First name</label><input type="text" placeholder="your name goes here" id="name"
+                    name="name"minlength="4">
+            </div>
+            <div class="required">
+                <label for="pass">your passeord</label><input type="password" placeholder="your password goes here"
+                    id="name" name="pass">
+            </div>
+
+            <div class="required">
+                <label for="textarea">please,enter any feedback you have:</label>
+                <textarea id="textarea" row="3" cols="50" name="feedback" minlength="4"></textarea>
+            </div>
+        </fieldset>
+        <br>
+        <label for="submit"> click to submit:</label><input type="submit" id="submit">
+    </form>
+</body>
+
+</html>
